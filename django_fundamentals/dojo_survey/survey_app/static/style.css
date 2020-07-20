@@ -1,0 +1,16 @@
+form{
+    width: 500px;
+    margin: auto;
+}
+label{
+    display: inline-block;
+    width: 150px;
+}
+#comment{
+    display: inline-block;
+    vertical-align: top;
+    width: 450px;
+}
+#submit_btn{
+    margin-left: 400px;
+}
