@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Word</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <p>Random Word (attemp #{{ request.session.count }})</p>
+    <h1>{{request.session.word}}</h1>
+    <a href="/random_word" class="btn btn-primary">Generate</a>
+    <a href="/reset" class="btn btn-primary">Reset</a>
+</body>
+</html>

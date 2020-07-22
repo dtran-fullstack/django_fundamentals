@@ -1,16 +1,13 @@
-form{
-    width: 500px;
-    margin: auto;
+body{
+    padding: 2em;
+    /* background-color: #EEDDEE; */
 }
-label{
-    display: inline-block;
-    width: 150px;
+form, div#container{
+    padding: 2em;
 }
-#comment{
-    display: inline-block;
-    vertical-align: top;
-    width: 450px;
+div#container span{
+    font-weight: bold;
 }
-#submit_btn{
-    margin-left: 400px;
+#container > h2{
+    border-bottom: solid 1px black;
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Survey</title>
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <h2>Subitted Info</h2>
+        <p><span>Name: </span>{{ result.name }}</p>
+        <p><span>Dojo Location: </span>{{ result.location }}</p>
+        <p><span>Favorite Language: </span>{{ result.language }}</p>
+        <p><span>Gender: </span>{{ result.gender }}</p>
+        <p><span>Hobbies: </span>{{ result.hobbies }}</p>
+        <p><span>Comment: </span>{{ result.comment }}</p>
+        <a href="/" class="btn btn-primary">Go Back</a>
+    </div>
+</body>
+</html>

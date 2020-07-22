@@ -1,23 +1,55 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+LANGS = (
+    'Python',
+    'JavaScript',
+    'Java',
+    'C#',
+)
+LOCATIONS = (
+    'San Jose',
+    'Seatle',
+    'Chicago',
+    'Online',
+)
+GENDERS = (
+    'Male',
+    'Female',
+    'Other',
+)
+HOBBIES = (
+    'Biking',
+    'Swimming',
+    'Hiking',
+    'Camping',
+)
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        'locations': LOCATIONS,
+        'languages': LANGS,
+        'genders' : GENDERS,
+        'hobbies' : HOBBIES,
+    }
+    return render(request, 'index.html',context)
 
-def output(request):
-    if request.method == "POST":
-        context = {
-            "name" : request.POST["full_name"], 
-            "location" : request.POST["location"],
-            "language" : request.POST["language"],
-            "gender" : request.POST["gender"],
-            "vehicle" : {
-                "ve1" : request.POST["vehicle1"],
-                "ve2" : request.POST["vehicle2"],
-                "ve3" : request.POST["vehicle3"],
-            },
-            "comment" : request.POST["comment"],
-        }
-        return render(request, 'index2.html', context)
-    return render(request, 'index2.html')
-       
+def survey(request):
+    if request.method == 'GET':
+        return redirect('/')
 
+    # print(request.POST)
+    
+    request.session['result'] = {
+        'name' : request.POST['name'],
+        'location' : request.POST['location'],
+        'language' : request.POST['language'],
+        'gender' : request.POST['gender'],
+        'hobbies' : request.POST['hobby_list[]'],
+        'comment' : request.POST['comment'],
+    }
+    return redirect('/result')
+
+def result(request):
+    context = {
+        'result': request.session['result']
+    }       
+    return render(request, 'result.html', context)
