@@ -1,0 +1,27 @@
+body{
+    padding: 20px;
+    /* background-color: burlywood; */
+    background-color: red;
+}
+#header{
+    margin-bottom: 20px;
+}
+.source_block{
+    display: inline-block;
+    width:300px;
+    border: 2px black solid;
+    padding: 10px;
+    padding-top: 0px;
+}
+#activities{
+    width: 95%;
+    height: 250px;
+    overflow-y: scroll;
+    border: solid black 2px;
+}
+.earn{
+    color: green;
+}
+.lose{
+    color: red;
+}

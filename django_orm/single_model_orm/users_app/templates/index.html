@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+
+</head>
+
+<body>
+    <div id="add">
+        <h1>Add a User</h1>
+        <form action="/create" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" name="age" id="age">
+            </div>   
+            <button class="btn btn-dark">Add</button>
+        </form>
+    </div>
+    <div id="show">
+        <h1>All the Users</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="id">Id</th>
+                    <th class="full_name">Name</th>
+                    <th class="email">Email</th>
+                    <th class="age">Age</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}    
+                <tr>
+                    <td class="id">{{user.id}}</td>
+                    <td class="full_name">{{user.full_name}}</td>
+                    <td class="email">{{user.email_address}}</td>
+                    <td class="age">{{user.age}}</td>
+                    <td>
+                        <form action="/delete" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="delete_user" id="delete_user" value="{{user.id}}">
+                            <button class="btn_delete">Delete</button>
+                        </form>
+                    </td>      
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

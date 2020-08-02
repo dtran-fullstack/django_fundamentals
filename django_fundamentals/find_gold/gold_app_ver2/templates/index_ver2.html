@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Gold</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="header">
+        <h3>Your Gold: <input type="text" disabled value="{{request.session.total_gold}}"></h3>
+        <a href="reset"><button>Reset</button></a>
+    </div>
+    <div class="source_block">
+        <h3>Farm</h3>
+        <p>(earn 10-20 golds)</p>
+        <a href="farm">Find Gold</a>
+    </div>
+    <div class="source_block">
+        <h3>Cave</h3>
+        <p>(earn 5-10 golds)</p>
+        <a href="cave">Find Gold</a>
+    </div>
+    <div class="source_block">
+        <h3>House</h3>
+        <p>(earn 2-5 golds)</p>
+        <a href="house">Find Gold</a>
+    </div>
+    <div class="source_block">
+        <h3>Casino</h3>
+        <p>(earn/lose 0-50 golds)</p>
+        <a href="casino">Find Gold</a>
+    </div>
+    <h2>Activities</h2>
+    <div id="activities">
+    {% for activity in request.session.activities reversed%}
+        <p class="{{activity.result}}">{{activity.log}}</p>
+    {% endfor %}
+    </div>
+</body>
+</html>

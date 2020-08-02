@@ -1,0 +1,31 @@
+/* body{
+    padding: 20px;
+} */
+
+#add{
+    width: 180px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#show{
+    display: inline-block;
+    width: 700px;
+    vertical-align: top;
+    text-align: center;
+    align-items: center;
+    margin-left: 50px;
+}
+.id{
+    width: 30px;
+}
+
+.name{
+    width: 300px;
+}
+.email{
+    width: 300px;
+}
+.btn_delete{
+    margin-left: 30px;
+}

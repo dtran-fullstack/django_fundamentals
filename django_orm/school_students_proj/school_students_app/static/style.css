@@ -1,0 +1,36 @@
+#wrapper{
+    width: 1000px;
+    margin: 0px auto;
+    background-color: sandybrown;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+#add{
+    margin: 0px auto;
+    margin-bottom: 20px;
+}
+
+#school{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 45%;
+}
+
+#student{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 45%;
+}
+
+#show{
+    margin: 0px auto;
+    width: 800px;
+    padding-left: 200px;
+    border-top: 2px solid black;
+    height: 300px;
+    overflow-y: scroll;
+}
+
