@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Detail</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h1>{{author.full_name}}</h1>
+    <h3>Book:</h3>
+    {% for book in books%}
+    <h4>{{book.title}}</h4>
+    {% endfor %}
+    <h4>ID: {{author.id}}</h4>
+    <h4>Notes:</h4>
+    <p id="detail">{{author.notes}}</p>
+    <form action="/author/{{author.id}}/add_book" method="POST">
+        {% csrf_token %}
+        <select name="book_id" id="book">
+            <option value="" hidden selected>-select a book-</option>
+            {% for book in books_list %}
+                {% if book not in books %}
+                    <option value="{{book.id}}">{{book.title}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <button>Add</button>
+    </form>
+</body>
+
+</html>

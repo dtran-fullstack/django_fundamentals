@@ -1,0 +1,20 @@
+#wrapper{
+    width: 1000px;
+    margin: 0px auto;
+}
+
+.add{
+    width: 400px;
+    margin-right: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+.show{
+    width: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+tr, td, th{
+    border: black 2px solid;
+}
