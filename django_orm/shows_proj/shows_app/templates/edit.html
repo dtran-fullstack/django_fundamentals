@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Show</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'add_update.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="head">
+            <h1>Update {{show.title}} Show</h1>
+            <a href="/shows">Go Back</a>
+        </div>
+        <form action="/shows/{{show.id}}/edit_process" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" class="form-control" placeholder="{{show.title}}">
+            </div>
+            <div class="form-group">
+                <label for="network">Network</label>
+                <input type="text" name="network" id="network" class="form-control" placeholder="{{show.network}}">
+            </div>
+            <div class="form-group">
+                <label for="release">Release Date</label>
+                <input type="date" name="release" id="release" class="form-control" placeholder="{{show.release}}">
+            </div>
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea name="desc" id="desc" class="form-control" cols="30" rows="10">{{show.desc}}</textarea>
+            </div>
+            <button class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</body>
+</html>

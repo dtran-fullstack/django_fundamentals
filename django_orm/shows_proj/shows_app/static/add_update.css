@@ -1,0 +1,13 @@
+#wrapper{
+    width: 900px;
+    margin: 0px auto;
+}
+
+#head h1{
+    display: inline-block;   
+    width: 800px;; 
+}
+
+#head a{
+    display: inline-block;
+}

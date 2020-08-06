@@ -1,0 +1,31 @@
+#wrapper{
+    width: 900px;
+    margin: 0px auto;
+}
+
+#head h1{
+    display: inline-block;   
+    width: 700px;; 
+}
+
+#head a{
+    display: inline-block;
+}
+
+table{
+    width: 100%;
+}
+
+ul{
+    display: inline;
+    list-style-type: none;
+}
+
+table, th, td{
+    border: black 2px solid;
+    border-collapse: collapse;
+}
+
+td{
+    text-align: center;
+}
