@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from shows_app.models import Show
+from django.contrib import messages
 
 def to_shows(request):
     return redirect('/shows')
@@ -14,7 +15,14 @@ def new(request):
     return render(request,'new.html')
 
 def new_process(request):
-    print(request.POST)
+    errors = Show.objects.basic_validator(request.POST)
+    valid_shows = Show.objects.filter(title=request.POST['title'])
+    if len(valid_shows) > 0:
+        errors['title'] = "The show already exists!"
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request,value)
+        return redirect('/shows/new')
     show = Show.objects.create(
         title = request.POST['title'],
         network = request.POST['network'],
@@ -37,16 +45,19 @@ def edit (request, show_id):
     return render(request,'edit.html',context)
 
 def edit_process(request, show_id):
-    print(request.POST)
+    errors = Show.objects.basic_validator(request.POST)
+    valid_shows = Show.objects.filter(title=request.POST['title'])
+    if len(valid_shows) > 0 and valid_shows[0].id != show_id:
+        errors['title'] = "The show already exists!"
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request,value)
+        return redirect('/shows/'+str(show_id)+'/edit')
     show = Show.objects.get(id=show_id)
-    if request.POST['title'] != None:
-        show.title = request.POST['title']
-    if request.POST['network'] != None:
-        show.network = request.POST['network']
-    if request.POST['release'] != None:    
-        show.realease_date = request.POST['release']
-    if request.POST['desc'] != None:
-        show.desc = request.POST['desc']
+    show.title = request.POST['title']
+    show.network = request.POST['network']
+    show.release_date = request.POST['release']
+    show.desc = request.POST['desc']
     show.save()
     path = '/shows/' + str(show.id)
     return redirect(path) 
