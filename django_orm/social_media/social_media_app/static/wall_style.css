@@ -1,0 +1,36 @@
+#wrapper{
+    width: 1000px;
+    margin: 0px auto;
+}
+#header{
+    border-bottom: 2px black solid;
+    margin-bottom: 50px;
+}
+#header *{
+    display: inline-block;
+}
+#header p{
+    margin-left: 500px;
+    margin-right: 50px;
+}
+
+#posts{
+    margin-top: 20px;
+}
+
+.post{
+    margin-top: 30px;
+}
+
+.post .post_head{
+    font-weight: bolder;
+    font-size: large;
+}
+
+.post .post_content{
+    margin-left: 30px;
+}
+
+.post .comments{
+    margin-left: 50px;
+}

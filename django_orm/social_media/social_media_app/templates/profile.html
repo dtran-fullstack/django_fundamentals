@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>{{user.first_name}} {{user.last_name}}'s Profile</h1>
+    <a href="/wall">return home</a>
+
+    <h2>Your posts:</h2>
+    <ul>
+        {% for message in user.messages.all %}
+        <li>{{message.content}}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your comments:</h2>
+    <ul>
+        {% for comment in user.comments.all %}
+        <li>{{comment.content}}</li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
